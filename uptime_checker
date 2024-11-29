@@ -1,0 +1,13 @@
+# uptime_checker.py
+
+import requests
+
+def check_website(url):
+    try:
+        response = requests.get(url, timeout=5)
+        return "Up" if response.status_code == 200 else "Down"
+    except requests.exceptions.RequestException:
+        return "Down"
+
+# Sample usage
+print(check_website("https://www.google.com"))
